@@ -1,8 +1,15 @@
 import java.util.*;
 import java.io.*;
 
-public  class banking 
-{
+/**
+ * MAIN Banking class 
+ */
+public class banking {
+
+   /**
+    * 
+    * @param args
+    */
    public static void main(String[] args) {
       Bank obj1 = new Bank();
       obj1.dispalyMenu();
@@ -10,13 +17,40 @@ public  class banking
 
 }
 
+/**
+ * 
+ */
 class Bank {
+
    int balance;
    int previousTransaction;
    String customerName;
    String customerId;
    String st;
    char choice;
+
+   /**
+    * 
+    * @param balance
+    * @param previousTransaction
+    * @param customerName
+    * @param customerId
+    * @param st
+    * @param choice
+    * @param sc
+    * @param scr
+    */
+   public Bank(int balance, int previousTransaction, String customerName, String customerId, String st, char choice, Scanner sc, Scanner scr) {
+      this.balance = balance;
+      this.previousTransaction = previousTransaction;
+      this.customerName = customerName;
+      this.customerId = customerId;
+      this.st = st;
+      this.choice = choice;
+      this.sc = sc;
+      this.scr = scr;
+   }
+
    Scanner sc = new Scanner(System.in);
    Scanner scr = new Scanner(System.in);
 
@@ -29,8 +63,9 @@ class Bank {
       }
    }
 
-
-   // constuctor
+   /**
+    * 
+    */
    Bank() {
       balance = 0;
       choice = '\u0000';
@@ -39,6 +74,10 @@ class Bank {
    }
 
    // *deposit
+   /**
+    * 
+    * @param amount
+    */
    void deposit(int amount) {
       balance += amount;
       if (amount != 0)
@@ -75,6 +114,9 @@ class Bank {
          System.out.println("NO transaction took place");
    }
 
+   /**
+    * 
+    */
    void dispalyMenu() {
       cls();
       input();
@@ -94,40 +136,43 @@ class Bank {
          System.out.print(" ENTER THE OPTION FROM ABOVE:");
          choice = sc.nextLine().charAt(0);
          line();
-
+         /**
+          * 
+          */
          switch (choice) {
-            case '1':
-               System.out.println("\nBANK BALANCE:" + balance);
-               System.out.println("\n\n\t\t\tPRESS ENTER TO CONTINUE");
-               st = sc.nextLine();
-               break;
-            case '2':
-               System.out.print("\nENTER THE AMOUNT TO BE DEPOSITED:--");
-               deposit(sc.nextInt());
-               st = sc.nextLine();
-               System.out.println("\n\n\t\t\tYOUR AMOUNT IS SUCESSFULLY DEPOSITED");
-               st = sc.nextLine();
-               break;
-            case '3':
-               System.out.print("\nENTER THE AMOUNT TO BE WITHDRAWN:--");
-               withdraw(sc.nextInt());
-               st = sc.nextLine();
-               System.out.println("\n\n\t\t\tWITHDRAWN SUCESSFULLY");
-               st = sc.nextLine();
-               break;
-            case '4':
-               getPreviousTransaction();
-               System.out.println("\n\n\t\t\tPRESS ENTER TO CONTINUE");
-               st = sc.nextLine();
-               break;
-            case '5':
-               System.out.println("-------------------------------------********************************----------------------------------------");
-               break;
-            default:
-               System.out.println("\nSEE CAREFULLY AND CHOOSE THE OPTION FROM THE ABOVE OPTION ONLY");
-               System.out.println("\n\n\t\t\tPRESS ENTER TO CONTINUE");
-               st = sc.nextLine();
-               break;
+         case '1':
+            System.out.println("\nBANK BALANCE:" + balance);
+            System.out.println("\n\n\t\t\tPRESS ENTER TO CONTINUE");
+            st = sc.nextLine();
+            break;
+         case '2':
+            System.out.print("\nENTER THE AMOUNT TO BE DEPOSITED:--");
+            deposit(sc.nextInt());
+            st = sc.nextLine();
+            System.out.println("\n\n\t\t\tYOUR AMOUNT IS SUCESSFULLY DEPOSITED");
+            st = sc.nextLine();
+            break;
+         case '3':
+            System.out.print("\nENTER THE AMOUNT TO BE WITHDRAWN:--");
+            withdraw(sc.nextInt());
+            st = sc.nextLine();
+            System.out.println("\n\n\t\t\tWITHDRAWN SUCESSFULLY");
+            st = sc.nextLine();
+            break;
+         case '4':
+            getPreviousTransaction();
+            System.out.println("\n\n\t\t\tPRESS ENTER TO CONTINUE");
+            st = sc.nextLine();
+            break;
+         case '5':
+            System.out.println(
+                  "-------------------------------------********************************----------------------------------------");
+            break;
+         default:
+            System.out.println("\nSEE CAREFULLY AND CHOOSE THE OPTION FROM THE ABOVE OPTION ONLY");
+            System.out.println("\n\n\t\t\tPRESS ENTER TO CONTINUE");
+            st = sc.nextLine();
+            break;
 
          }
 
