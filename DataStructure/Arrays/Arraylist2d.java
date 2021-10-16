@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.*;
 
 public class Arraylist2d
@@ -27,6 +26,8 @@ public class Arraylist2d
     	        list.get(i).add(sc.nextInt());
     	    }
     	}
+
+    	System.out.println(list.get(1).get(2));
 
 	    /////////////////////////////////////////////////////////////
     	//Printing the MultiDimension Arraylist using the for loop //

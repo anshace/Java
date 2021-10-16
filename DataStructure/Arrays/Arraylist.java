@@ -1,5 +1,6 @@
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Arraylist
 {	
@@ -15,9 +16,19 @@ public class Arraylist
     	// Both are corect
 
     	// Input the Element in Java...
-    	int num=sc.nextInt();
-    	for (int i=0;i< num;i++ ){
-    	    list.add(sc.nextInt());
+    	// int num=sc.nextInt();
+    	// for (int i=0;i< num;i++ ){
+    	//     list.add(sc.nextInt());// we use add
+    	// }
+
+    	// for unknown number of inputs.for which arraylist is best
+    	while(sc.hasNextInt())
+    	    list.add(sc.nextInt());// we use add
+
+
+    	// Alter the values in the arraylist
+    	for (int i=0;i< list.size();i++ ){
+			System.out.println(list.set(i,(list.get(i)*list.get(i))));    	    
     	}
 
     	// Print the Arraylist..
@@ -25,6 +36,16 @@ public class Arraylist
 			System.out.print(i+", ");
     	}
     	System.out.println("\n\n"+list);
+
+    	// empty the list
+    	for (int i=0;list.size()>0; ){
+    	    list.remove(i);
+    	}
+    	System.out.println(list);
+    	// or just use clear to  empty the list at Once.
+    	list.clear();
+    	System.out.println(list);
+
     	sc.close();
 	}
 }
