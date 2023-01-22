@@ -25,6 +25,7 @@ public class Arraylist
     	while(sc.hasNextInt())
     	    list.add(sc.nextInt());// we use add
 
+    	System.out.println(list);
 
     	// Alter the values in the arraylist
     	for (int i=0;i< list.size();i++ ){
